@@ -1,0 +1,30 @@
+{
+    "sha256_hash": "125b4493ffa400888cee586c4b46e98a916d69ba0a6a15c646cd7e37bcd46719",
+    "timestamp": "2026-08-03 18:25:07",
+    "source_system_A": {
+        "title": "Systems Biology: Gene Bistable Auto-Activation Switch",
+        "formula": "Derivative(x, t) = V_max*x**2/(K_m**2 + x**2) - k_deg*x"
+    },
+    "target_system_B": {
+        "title": "Neural ODE Gradient Stiffness & Infinite Step Explosion",
+        "formula": "diff(h, t) = w1 * tanh(w2 * h) + w3 * h**2",
+        "bottleneck": "Finite-time gradient stiffness explosion under weight accumulation."
+    },
+    "synthesized_model": {
+        "morphed_formula_raw": "diff(h, t) = -Phi_1*h + h**2*w3/(Phi_1*h**2 + 1.0) + w1*tanh(h*w2)",
+        "morphed_formula_operator_form": "f_B(h) / (1 + Phi_1 * f_B(h) * tanh(f_B(h))) - Phi_1 * h",
+        "fitted_params": {
+            "Phi_1": 0.33018484756846406,
+            "w1": 0.3128721084094459,
+            "w2": 0.31313902219587303,
+            "w3": 0.30747698627472486
+        },
+        "PRI_score": 0.555,
+        "MSE": 2e-06
+    },
+    "z3_smt_proof": {
+        "smt_certified": true,
+        "proof_status": "PASSED_LASALLE_SPHERE",
+        "details": "Dense LaSalle absorbing sphere verified successfully across all radii."
+    }
+}
