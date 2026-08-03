@@ -70,7 +70,8 @@ python benchmark_torchdiffeq.py
 ```bibtex
 @article{sjfu2026surgical,
   title={Surgical Hill-Kinetics Field Saturation: Resolving Finite-Time Explosion and NFE Stiffness in Neural Ordinary Differential Equations},
-  author={Sjfu and Nexatron Labs},
+  author={Sjfu and {Nexatron Labs}},
+  journal={arXiv preprint / Zenodo},
   year={2026}
 }
 ```
