@@ -1,9 +1,10 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Framework: PyTorch](https://img.shields.io/badge/Framework-PyTorch-ee4c2c.svg)](https://pytorch.org/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21779035.svg)](https://doi.org/10.5281/zenodo.21779035)
 
 Official open-source implementation for **"Surgical Hill-Kinetics Field Saturation: Resolving Finite-Time Explosion and NFE Stiffness in Neural Ordinary Differential Equations"**.
 
-[📄 Read Full Paper (PDF)](Hill_Saturated_Neural_ODE.pdf) | [📜 Formal Proof Ledger (JSON)](proof_ledger.json)
+[📄 Read Full Paper (Zenodo DOI)](https://doi.org/10.5281/zenodo.21779035) | [📜 Formal Proof Ledger (JSON)](proof_ledger.json)
 
 ---
 
@@ -70,9 +71,11 @@ python benchmark_torchdiffeq.py
 ```bibtex
 @article{sjfu2026surgical,
   title={Surgical Hill-Kinetics Field Saturation: Resolving Finite-Time Explosion and NFE Stiffness in Neural Ordinary Differential Equations},
-  author={Sjfu and {Nexatron Labs}},
-  journal={arXiv preprint / Zenodo},
-  year={2026}
+  author={Sjfu and Nexatron Labs},
+  year={2026},
+  doi={10.5281/zenodo.21779035},
+  publisher={Zenodo},
+  url={https://doi.org/10.5281/zenodo.21779035}
 }
 ```
 
