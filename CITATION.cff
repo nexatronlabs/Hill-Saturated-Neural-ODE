@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you use this software or method, please cite it as below."
+authors:
+  - family-names: "Sjfu"
+    affiliation: "Nexatron Labs"
+title: "Surgical Hill-Kinetics Field Saturation: Resolving Finite-Time Explosion and NFE Stiffness in Neural Ordinary Differential Equations"
+date-released: 2026-08-03
+doi: 10.5281/zenodo.21779035
+url: "https://doi.org/10.5281/zenodo.21779035"
