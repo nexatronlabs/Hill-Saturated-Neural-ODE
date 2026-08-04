@@ -14,7 +14,7 @@ Continuous-Time Neural Networks and Neural Ordinary Differential Equations (Neur
 
 We propose **Surgical Hill-Kinetics Field Saturation**, a cross-domain operator transfer regularizer inspired by bio-enzymatic auto-activation kinetics. By selectively applying rational saturation to divergent vector fields while maintaining sub-linear activation manifolds pristine, our method guarantees global $C^\infty$ smoothness, non-zero autograd gradient flow, and $N$-dimensional LaSalle sphere boundedness.
 
-Certified by Microsoft Z3 SMT Theorem Prover (`PASSED_LASALLE_SPHERE`), PyTorch Adjoint benchmarks on stiff multi-trajectory Van der Pol dynamics ($\mu = 3.0$, $\text{hidden\_dim} = 128$) demonstrate a **$>55\%$ reduction in prediction error ($\text{MSE} = 0.8357$ vs $1.8651$)** over 100 training epochs, eliminating trajectory collapse while incurring virtually zero computational solver overhead ($\text{NFE} = 241.9$ vs $230.9$, $<5\%$ difference).
+Certified by Microsoft Z3 SMT Theorem Prover (`PASSED_LASALLE_SPHERE`), PyTorch Adjoint benchmarks on stiff multi-trajectory Van der Pol dynamics ($\mu = 3.0$, `hidden_dim = 128`) demonstrate a **> 55% reduction in prediction error (MSE = 0.8357 vs 1.8651)** over 100 training epochs, eliminating trajectory collapse while incurring virtually zero computational solver overhead (NFE = 241.9 vs 230.9, < 5% difference).
 
 ---
 
