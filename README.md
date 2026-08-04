@@ -2,10 +2,11 @@
 [![Framework: PyTorch](https://img.shields.io/badge/Framework-PyTorch-ee4c2c.svg)](https://pytorch.org/)
 [![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.21792517-blue.svg)](https://doi.org/10.5281/zenodo.21792517)
 [![Report](https://img.shields.io/badge/Report-NXL--2026--01-green.svg)](https://doi.org/10.5281/zenodo.21792517)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nexatronlabs/Hill-Saturated-Neural-ODE/blob/main/notebooks/nxl_2026_01_neural_ode.ipynb)
 
 Official open-source implementation for **"Surgical Hill-Kinetics Field Saturation: Eliminating Finite-Time Blowup and Adaptive Solver Grid Collapse in Neural Ordinary Differential Equations"**.
 
-[📄 Read Full Technical Report (Zenodo DOI v1.1.0)](https://doi.org/10.5281/zenodo.21792517) | [📜 Formal Proof Ledger (JSON)](proof_ledger.json)
+[📄 Read Full Technical Report (Zenodo DOI v1.1.0)](https://doi.org/10.5281/zenodo.21792517) | [📜 Formal Proof Ledger (JSON)](proof_ledger.json) | [🚀 Run in Google Colab](https://colab.research.google.com/github/nexatronlabs/Hill-Saturated-Neural-ODE/blob/main/notebooks/nxl_2026_01_neural_ode.ipynb)
 
 ---
 
@@ -21,11 +22,36 @@ Certified by Microsoft Z3 SMT Theorem Prover (`PASSED_LASALLE_SPHERE`), PyTorch 
 ## ⚙️ Mathematical Formulation
 
 For an $N$-dimensional vector state $\mathbf{z}(t) \in \mathbb{R}^N$ parametrized by MLP $f_\theta(\mathbf{z})$:
+
 $$\mathbf{f}_{\text{reg}}(\mathbf{z}) = \frac{f_\theta(\mathbf{z})}{1 + \phi \|\mathbf{z}\|_2^2} - \phi \mathbf{z}, \quad \text{where } \phi = \text{softplus}(\psi) > 0$$
 
 Unlike blanket saturating wrappers, the weight autograd gradient remains strictly non-zero at infinity:
+
 $$\lim_{h \to \infty} \frac{\partial \dot{h}}{\partial w_3} = \frac{1}{\Phi_1} > 0$$
+
 guaranteeing that network parameters $\theta$ never experience optimization freezing during gradient descent.
+
+---
+
+## 📦 Installation & Python Usage
+
+You can install `nexatron` directly from GitHub into any PyTorch project:
+
+```bash
+pip install git+https://github.com/nexatronlabs/Hill-Saturated-Neural-ODE.git
+```
+
+### Quick Python Code Example
+```python
+import torch
+from nexatron import SurgicalHillSaturation
+
+# 1. Initialize regularizer
+saturation = SurgicalHillSaturation(phi_init=0.10)
+
+# 2. In your Neural ODE forward pass:
+f_regularized = saturation(f_base, z)
+```
 
 ---
 
@@ -44,10 +70,14 @@ guaranteeing that network parameters $\theta$ never experience optimization free
 ## 📁 Repository Structure
 
 ```text
+├── nexatron/                    # Core Python package (pip installable)
+├── notebooks/                   # Interactive Google Colab notebook (NXL-2026-01)
+├── setup.py                     # PyPI/pip installation configuration
 ├── benchmark_torchdiffeq.py     # Executable PyTorch & torchdiffeq benchmark script
 ├── benchmark_results.png         # High-resolution benchmark figures
 ├── Hill_Saturated_Neural_ODE_2.pdf # Full technical report PDF (v1.1.0)
-└── proof_ledger.json             # Z3 SMT formal verification certificate & metadata
+├── proof_ledger.json             # Z3 SMT formal verification certificate & metadata
+└── CITATION.cff                 # GitHub citation metadata
 ```
 
 ---
@@ -62,7 +92,7 @@ git clone https://github.com/nexatronlabs/Hill-Saturated-Neural-ODE.git
 cd Hill-Saturated-Neural-ODE
 
 # 2. Install dependencies
-pip install torch torchdiffeq matplotlib numpy
+pip install torch torchdiffeq matplotlib numpy .
 
 # 3. Run PyTorch Adjoint benchmark
 python benchmark_torchdiffeq.py
