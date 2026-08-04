@@ -3,7 +3,7 @@ message: "If you use this software or method, please cite it as below."
 authors:
   - family-names: "Sjfu"
     affiliation: "Nexatron Labs"
-title: "Surgical Hill-Kinetics Field Saturation: Resolving Finite-Time Explosion and NFE Stiffness in Neural Ordinary Differential Equations"
-date-released: 2026-08-03
-doi: 10.5281/zenodo.21779035
-url: "https://doi.org/10.5281/zenodo.21779035"
+title: "Surgical Hill-Kinetics Field Saturation: Eliminating Finite-Time Blowup and Adaptive Solver Grid Collapse in Neural Ordinary Differential Equations"
+date-released: 2026-08-04
+doi: 10.5281/zenodo.21792517
+url: "https://doi.org/10.5281/zenodo.21792517"
